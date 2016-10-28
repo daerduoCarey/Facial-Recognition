@@ -1,0 +1,611 @@
+
+<<< Testing on the test dataset ...
+Loading test file /home/kaichun/projects/cs221/fer2013/data_hdf5/val_0.h5
+Loading test file /home/kaichun/projects/cs221/fer2013/data_hdf5/val_1.h5
+	Category 0 (Angry) number: 550
+	Accruracy: 0.160000
+	Category 1 (Disgust) number: 66
+	Accruracy: 0.106061
+	Category 2 (Fear) number: 600
+	Accruracy: 0.210000
+	Category 3 (Happy) number: 974
+	Accruracy: 0.420945
+	Category 4 (Sad) number: 696
+	Accruracy: 0.291667
+	Category 5 (Surprise) number: 484
+	Accruracy: 0.460744
+	Category 6 (Neutral) number: 726
+	Accruracy: 0.247934
+Training Loss: 2.290105
+Training Accuracy: 0.302002
+
+>>> Training for the epoch 0/100 ...
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_3.h5
+Training Loss: 2.180205
+Training Accuracy: 0.290039
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_0.h5
+Training Loss: 1.869260
+Training Accuracy: 0.349609
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_7.h5
+Training Loss: 1.693258
+Training Accuracy: 0.402832
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_1.h5
+Training Loss: 1.566572
+Training Accuracy: 0.434082
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_9.h5
+Training Loss: 1.481722
+Training Accuracy: 0.466309
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_4.h5
+Training Loss: 1.417274
+Training Accuracy: 0.489258
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_2.h5
+Training Loss: 1.366861
+Training Accuracy: 0.510254
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_5.h5
+Training Loss: 1.329337
+Training Accuracy: 0.534180
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_13.h5
+Training Loss: 1.307659
+Training Accuracy: 0.542969
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_8.h5
+Training Loss: 1.293686
+Training Accuracy: 0.561035
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_10.h5
+Training Loss: 1.246288
+Training Accuracy: 0.581543
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_14.h5
+Training Loss: 1.171078
+Training Accuracy: 0.596680
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_11.h5
+Training Loss: 1.102470
+Training Accuracy: 0.621582
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_6.h5
+Training Loss: 1.061920
+Training Accuracy: 0.628906
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_12.h5
+Training Loss: 1.054851
+Training Accuracy: 0.632324
+
+>>> Training for the epoch 1/100 ...
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_11.h5
+Training Loss: 1.095174
+Training Accuracy: 0.625000
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_0.h5
+Training Loss: 1.214021
+Training Accuracy: 0.608398
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_14.h5
+Training Loss: 1.255630
+Training Accuracy: 0.600098
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_1.h5
+Training Loss: 1.150613
+Training Accuracy: 0.618164
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_9.h5
+Training Loss: 1.068155
+Training Accuracy: 0.644043
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_10.h5
+Training Loss: 0.970040
+Training Accuracy: 0.679199
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_3.h5
+Training Loss: 0.915171
+Training Accuracy: 0.697754
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_12.h5
+Training Loss: 0.864371
+Training Accuracy: 0.719727
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_8.h5
+Training Loss: 0.823518
+Training Accuracy: 0.733887
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_2.h5
+Training Loss: 0.813320
+Training Accuracy: 0.731445
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_6.h5
+Training Loss: 0.839409
+Training Accuracy: 0.729492
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_13.h5
+Training Loss: 0.883190
+Training Accuracy: 0.718750
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_5.h5
+Training Loss: 0.893561
+Training Accuracy: 0.713379
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_4.h5
+Training Loss: 0.837163
+Training Accuracy: 0.715820
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_7.h5
+Training Loss: 0.773679
+Training Accuracy: 0.745117
+
+>>> Training for the epoch 2/100 ...
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_2.h5
+Training Loss: 0.757756
+Training Accuracy: 0.751465
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_5.h5
+Training Loss: 0.760014
+Training Accuracy: 0.754883
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_0.h5
+Training Loss: 0.723246
+Training Accuracy: 0.770020
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_14.h5
+Training Loss: 0.669202
+Training Accuracy: 0.784668
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_7.h5
+Training Loss: 0.636751
+Training Accuracy: 0.795898
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_9.h5
+Training Loss: 0.626831
+Training Accuracy: 0.800781
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_4.h5
+Training Loss: 0.622646
+Training Accuracy: 0.807617
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_3.h5
+Training Loss: 0.608565
+Training Accuracy: 0.819824
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_13.h5
+Training Loss: 0.612904
+Training Accuracy: 0.811523
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_11.h5
+Training Loss: 0.620763
+Training Accuracy: 0.806152
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_1.h5
+Training Loss: 0.702286
+Training Accuracy: 0.782227
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_10.h5
+Training Loss: 0.653194
+Training Accuracy: 0.803711
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_12.h5
+Training Loss: 0.527684
+Training Accuracy: 0.842773
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_8.h5
+Training Loss: 0.500171
+Training Accuracy: 0.870117
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_6.h5
+Training Loss: 0.498583
+Training Accuracy: 0.863281
+
+>>> Training for the epoch 3/100 ...
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_13.h5
+Training Loss: 0.493185
+Training Accuracy: 0.869141
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_7.h5
+Training Loss: 0.479199
+Training Accuracy: 0.882324
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_8.h5
+Training Loss: 0.534448
+Training Accuracy: 0.841797
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_3.h5
+Training Loss: 0.563039
+Training Accuracy: 0.816406
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_11.h5
+Training Loss: 0.537906
+Training Accuracy: 0.827637
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_5.h5
+Training Loss: 0.526101
+Training Accuracy: 0.836914
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_1.h5
+Training Loss: 0.516350
+Training Accuracy: 0.848145
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_12.h5
+Training Loss: 0.512089
+Training Accuracy: 0.849609
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_6.h5
+Training Loss: 0.510214
+Training Accuracy: 0.843262
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_10.h5
+Training Loss: 0.512406
+Training Accuracy: 0.847656
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_2.h5
+Training Loss: 0.524351
+Training Accuracy: 0.844238
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_4.h5
+Training Loss: 0.535755
+Training Accuracy: 0.843262
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_14.h5
+Training Loss: 0.531606
+Training Accuracy: 0.848633
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_0.h5
+Training Loss: 0.520347
+Training Accuracy: 0.854980
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_9.h5
+Training Loss: 0.528933
+Training Accuracy: 0.854492
+
+>>> Training for the epoch 4/100 ...
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_13.h5
+Training Loss: 0.559311
+Training Accuracy: 0.845215
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_0.h5
+Training Loss: 0.599320
+Training Accuracy: 0.835938
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_14.h5
+Training Loss: 0.621198
+Training Accuracy: 0.819336
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_6.h5
+Training Loss: 0.634163
+Training Accuracy: 0.817383
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_8.h5
+Training Loss: 0.612405
+Training Accuracy: 0.822754
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_4.h5
+Training Loss: 0.574270
+Training Accuracy: 0.833984
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_12.h5
+Training Loss: 0.514809
+Training Accuracy: 0.853516
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_1.h5
+Training Loss: 0.476030
+Training Accuracy: 0.861328
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_5.h5
+Training Loss: 0.458334
+Training Accuracy: 0.860840
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_7.h5
+Training Loss: 0.437172
+Training Accuracy: 0.879395
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_3.h5
+Training Loss: 0.424499
+Training Accuracy: 0.881348
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_2.h5
+Training Loss: 0.419122
+Training Accuracy: 0.884766
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_10.h5
+Training Loss: 0.417342
+Training Accuracy: 0.892090
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_11.h5
+Training Loss: 0.411360
+Training Accuracy: 0.899902
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_9.h5
+Training Loss: 0.394672
+Training Accuracy: 0.901855
+
+>>> Training for the epoch 5/100 ...
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_9.h5
+Training Loss: 0.389338
+Training Accuracy: 0.905273
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_3.h5
+Training Loss: 0.381724
+Training Accuracy: 0.908203
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_7.h5
+Training Loss: 0.363915
+Training Accuracy: 0.914551
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_8.h5
+Training Loss: 0.355018
+Training Accuracy: 0.918457
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_6.h5
+Training Loss: 0.358046
+Training Accuracy: 0.917480
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_4.h5
+Training Loss: 0.354885
+Training Accuracy: 0.913574
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_10.h5
+Training Loss: 0.355405
+Training Accuracy: 0.911621
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_12.h5
+Training Loss: 0.375554
+Training Accuracy: 0.900879
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_0.h5
+Training Loss: 0.399205
+Training Accuracy: 0.890137
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_1.h5
+Training Loss: 0.389054
+Training Accuracy: 0.890137
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_11.h5
+Training Loss: 0.369522
+Training Accuracy: 0.893066
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_14.h5
+Training Loss: 0.372410
+Training Accuracy: 0.892090
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_5.h5
+Training Loss: 0.368941
+Training Accuracy: 0.894531
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_2.h5
+Training Loss: 0.373751
+Training Accuracy: 0.897949
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_13.h5
+Training Loss: 0.376256
+Training Accuracy: 0.900879
+
+>>> Training for the epoch 6/100 ...
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_6.h5
+Training Loss: 0.381643
+Training Accuracy: 0.895996
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_1.h5
+Training Loss: 0.364507
+Training Accuracy: 0.904297
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_8.h5
+Training Loss: 0.351578
+Training Accuracy: 0.904297
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_9.h5
+Training Loss: 0.346272
+Training Accuracy: 0.914551
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_10.h5
+Training Loss: 0.328671
+Training Accuracy: 0.921387
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_5.h5
+Training Loss: 0.303469
+Training Accuracy: 0.925781
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_12.h5
+Training Loss: 0.370152
+Training Accuracy: 0.889160
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_13.h5
+Training Loss: 0.351318
+Training Accuracy: 0.904297
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_14.h5
+Training Loss: 0.353213
+Training Accuracy: 0.903809
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_2.h5
+Training Loss: 0.368296
+Training Accuracy: 0.903320
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_11.h5
+Training Loss: 0.388159
+Training Accuracy: 0.892578
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_0.h5
+Training Loss: 0.415281
+Training Accuracy: 0.884766
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_4.h5
+Training Loss: 0.445969
+Training Accuracy: 0.874512
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_7.h5
+Training Loss: 0.487929
+Training Accuracy: 0.862305
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_3.h5
+Training Loss: 0.542712
+Training Accuracy: 0.849609
+
+>>> Training for the epoch 7/100 ...
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_6.h5
+Training Loss: 0.617385
+Training Accuracy: 0.829590
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_5.h5
+Training Loss: 0.731215
+Training Accuracy: 0.802734
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_2.h5
+Training Loss: 0.755270
+Training Accuracy: 0.809082
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_0.h5
+Training Loss: 0.573173
+Training Accuracy: 0.847656
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_1.h5
+Training Loss: 0.451665
+Training Accuracy: 0.868652
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_8.h5
+Training Loss: 0.360542
+Training Accuracy: 0.903320
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_11.h5
+Training Loss: 0.329960
+Training Accuracy: 0.907715
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_10.h5
+Training Loss: 0.320830
+Training Accuracy: 0.914551
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_7.h5
+Training Loss: 0.312962
+Training Accuracy: 0.916016
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_3.h5
+Training Loss: 0.303554
+Training Accuracy: 0.921387
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_13.h5
+Training Loss: 0.295433
+Training Accuracy: 0.922363
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_9.h5
+Training Loss: 0.289373
+Training Accuracy: 0.923828
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_12.h5
+Training Loss: 0.285225
+Training Accuracy: 0.927246
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_4.h5
+Training Loss: 0.282722
+Training Accuracy: 0.926758
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_14.h5
+Training Loss: 0.281788
+Training Accuracy: 0.929199
+
+>>> Training for the epoch 8/100 ...
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_14.h5
+Training Loss: 0.282325
+Training Accuracy: 0.930176
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_0.h5
+Training Loss: 0.284153
+Training Accuracy: 0.929688
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_6.h5
+Training Loss: 0.287295
+Training Accuracy: 0.928711
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_7.h5
+Training Loss: 0.292207
+Training Accuracy: 0.926758
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_1.h5
+Training Loss: 0.300015
+Training Accuracy: 0.927246
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_4.h5
+Training Loss: 0.312604
+Training Accuracy: 0.922852
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_3.h5
+Training Loss: 0.331091
+Training Accuracy: 0.916504
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_8.h5
+Training Loss: 0.354577
+Training Accuracy: 0.911133
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_13.h5
+Training Loss: 0.383287
+Training Accuracy: 0.898926
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_5.h5
+Training Loss: 0.418122
+Training Accuracy: 0.883789
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_2.h5
+Training Loss: 0.461166
+Training Accuracy: 0.868164
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_10.h5
+Training Loss: 0.528929
+Training Accuracy: 0.851074
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_9.h5
+Training Loss: 0.585025
+Training Accuracy: 0.842285
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_12.h5
+Training Loss: 0.553469
+Training Accuracy: 0.848145
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_11.h5
+Training Loss: 0.428770
+Training Accuracy: 0.881836
+
+>>> Training for the epoch 9/100 ...
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_14.h5
+Training Loss: 0.346081
+Training Accuracy: 0.900391
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_9.h5
+Training Loss: 0.334218
+Training Accuracy: 0.906738
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_11.h5
+Training Loss: 0.328265
+Training Accuracy: 0.908691
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_13.h5
+Training Loss: 0.349050
+Training Accuracy: 0.905762
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_1.h5
+Training Loss: 0.371983
+Training Accuracy: 0.900879
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_6.h5
+Training Loss: 0.387822
+Training Accuracy: 0.890137
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_2.h5
+Training Loss: 0.414496
+Training Accuracy: 0.877441
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_7.h5
+Training Loss: 0.449419
+Training Accuracy: 0.866699
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_12.h5
+Training Loss: 0.514810
+Training Accuracy: 0.861328
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_10.h5
+Training Loss: 0.522864
+Training Accuracy: 0.857422
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_0.h5
+Training Loss: 0.618296
+Training Accuracy: 0.830566
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_3.h5
+Training Loss: 0.462852
+Training Accuracy: 0.857422
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_4.h5
+Training Loss: 0.356070
+Training Accuracy: 0.888184
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_5.h5
+Training Loss: 0.307864
+Training Accuracy: 0.903809
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_8.h5
+Training Loss: 0.284879
+Training Accuracy: 0.913574
+Successfully store the checkpoint model intocheckpoint.ckpt
+
+<<< Testing on the test dataset ...
+Loading test file /home/kaichun/projects/cs221/fer2013/data_hdf5/val_0.h5
+Loading test file /home/kaichun/projects/cs221/fer2013/data_hdf5/val_1.h5
+	Category 0 (Angry) number: 550
+	Accruracy: 0.169091
+	Category 1 (Disgust) number: 66
+	Accruracy: 0.106061
+	Category 2 (Fear) number: 600
+	Accruracy: 0.198333
+	Category 3 (Happy) number: 974
+	Accruracy: 0.432238
+	Category 4 (Sad) number: 696
+	Accruracy: 0.244253
+	Category 5 (Surprise) number: 484
+	Accruracy: 0.396694
+	Category 6 (Neutral) number: 726
+	Accruracy: 0.242424
+Training Loss: 4.795612
+Training Accuracy: 0.287598
+
+>>> Training for the epoch 10/100 ...
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_12.h5
+Training Loss: 0.439074
+Training Accuracy: 0.845215
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_10.h5
+Training Loss: 0.290357
+Training Accuracy: 0.910156
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_9.h5
+Training Loss: 0.260713
+Training Accuracy: 0.927734
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_11.h5
+Training Loss: 0.234979
+Training Accuracy: 0.937988
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_5.h5
+Training Loss: 0.212981
+Training Accuracy: 0.948730
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_13.h5
+Training Loss: 0.195467
+Training Accuracy: 0.956543
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_3.h5
+Training Loss: 0.179561
+Training Accuracy: 0.965820
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_7.h5
+Training Loss: 0.166880
+Training Accuracy: 0.970215
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_14.h5
+Training Loss: 0.158097
+Training Accuracy: 0.972656
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_8.h5
+Training Loss: 0.152174
+Training Accuracy: 0.976562
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_1.h5
+Training Loss: 0.147635
+Training Accuracy: 0.979004
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_4.h5
+Training Loss: 0.143666
+Training Accuracy: 0.981445
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_0.h5
+Training Loss: 0.139988
+Training Accuracy: 0.981934
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_2.h5
+Training Loss: 0.136514
+Training Accuracy: 0.983398
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_6.h5
+Training Loss: 0.133220
+Training Accuracy: 0.984863
+
+>>> Training for the epoch 11/100 ...
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_3.h5
+Training Loss: 0.130101
+Training Accuracy: 0.987793
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_7.h5
+Training Loss: 0.127161
+Training Accuracy: 0.987305
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_13.h5
+Training Loss: 0.124402
+Training Accuracy: 0.989258
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_6.h5
+Training Loss: 0.121819
+Training Accuracy: 0.989258
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_5.h5
+Training Loss: 0.119401
+Training Accuracy: 0.989258
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_0.h5
+Training Loss: 0.117131
+Training Accuracy: 0.990234
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_2.h5
+Training Loss: 0.114992
+Training Accuracy: 0.991211
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_14.h5
+Training Loss: 0.112964
+Training Accuracy: 0.991211
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_8.h5
+Training Loss: 0.111031
+Training Accuracy: 0.991699
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_11.h5
+Training Loss: 0.109179
+Training Accuracy: 0.992188
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_1.h5
+Training Loss: 0.107397
+Training Accuracy: 0.992676
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_4.h5
+Training Loss: 0.105680
+Training Accuracy: 0.994141
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_12.h5
+Training Loss: 0.104023
+Training Accuracy: 0.994629
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_9.h5
+Training Loss: 0.102424
+Training Accuracy: 0.994629
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_10.h5
+Training Loss: 0.100881
+Training Accuracy: 0.994629
+
+>>> Training for the epoch 12/100 ...
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_13.h5
+Training Loss: 0.099395
+Training Accuracy: 0.995605
+Loading train file /home/kaichun/projects/cs221/fer2013/data_hdf5/train_5.h5

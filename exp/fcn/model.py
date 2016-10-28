@@ -18,6 +18,6 @@ def get_model(input_images, is_training, cat_num, batch_size, weight_decay, bn_d
     net = tf_util.fully_connected(input_data, 64, bn=True, is_training=is_training, \
             weight_decay=weight_decay, bn_decay=bn_decay, scope='fc4')
     net = tf_util.fully_connected(input_data, cat_num, bn=False, is_training=is_training, \
-            weight_decay=weight_decay, activation_fn=None, scope='fc4')
+            weight_decay=weight_decay, activation_fn=None, scope='fc5')
 
     return net

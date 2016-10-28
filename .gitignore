@@ -1,4 +1,4 @@
 data_hdf5
 fer2013.csv
-checkpoint
+checkpoint.ckpt*
 *.pyc

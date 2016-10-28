@@ -29,6 +29,11 @@ print '### Training epoches: ', total_training_epoch
 base_dir = '/home/kaichun/projects/cs221/fer2013/'
 dataset_dir = os.path.join(base_dir, 'data_hdf5')
 
+all_labels_file = os.path.join(base_dir, 'all_labels.txt')
+flabel = open(all_labels_file, 'r')
+catid2catname = [line.rstrip() for line in flabel.readlines()]
+flabel.close()
+
 TRAINING_FILE_LIST = os.path.join(dataset_dir, 'training_file_list.txt')
 TESTING_FILE_LIST = os.path.join(dataset_dir, 'validation_file_list.txt')
 TRAINING_IMAGES_MEAN_SCALE_HDF5_FILE = os.path.join(dataset_dir, 'training_images_mean_scale.h5')
@@ -55,7 +60,7 @@ def load_h5(h5_filename):
 
 def load_h5_mean_scale(h5_filename):
     f = h5py.File(h5_filename)
-    image_scale = f['scale'][:]
+    image_scale = f['scale'][()]
     image_mean = f['mean'][:]
     return (image_mean, image_scale)
 
@@ -123,6 +128,8 @@ def train():
         num_train_file = len(train_file_list)
         test_file_list = getDataFiles(TESTING_FILE_LIST)
         num_test_file = len(test_file_list)
+
+        flog = open('log.txt', 'w')
 
         image_mean, image_scale = load_h5_mean_scale(TRAINING_IMAGES_MEAN_SCALE_HDF5_FILE)
         print image_mean.shape

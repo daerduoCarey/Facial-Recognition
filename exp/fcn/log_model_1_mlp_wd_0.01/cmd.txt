@@ -1,1 +1,0 @@
-Namespace(batch=256, describe='wd_0.01', epoch=300, gpu=1, model='model_1_mlp', verbose=False, wd=0.01)

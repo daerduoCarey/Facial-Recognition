@@ -1,0 +1,1 @@
+Namespace(batch=128, describe='wd_0', epoch=100, gpu=0, model='model_3_mlp', verbose=False, wd=0.0)

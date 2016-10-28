@@ -159,7 +159,7 @@ def train():
         print image_scale
 
         # write logs to the disk
-        subprocess.call('cat model.py > '+os.path.join(log_dir, 'model.py'), shell=True)
+        subprocess.call('cat '+model_to_use+'.py > '+os.path.join(log_dir, 'model.py'), shell=True)
         subprocess.call('cat '+__file__+' > '+os.path.join(log_dir, 'train.py'), shell=True)
 
         fcmd = open(os.path.join(log_dir, 'cmd.txt'), 'w')
@@ -247,7 +247,7 @@ def train():
                             label_ph: cur_labels[begidx: endidx],
                             is_training_ph: is_training,
                             }
-                    _, loss_val, pred_val = sess.run([train_op, total_loss_op, pred], \
+                    loss_val, pred_val = sess.run([total_loss_op, pred], \
                             feed_dict=feed_dict)
                     label_pred = np.argmax(pred_val, 1)
                     

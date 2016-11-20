@@ -1,11 +1,13 @@
 import tensorflow as tf
+import scipy.misc
+import math
 import h5py
 import os
 import sys
 import argparse
 import numpy as np
 import subprocess
-import Image
+from PIL import Image
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--gpu', type=int, default=0, help='GPU to use [Default: 0]')
@@ -36,7 +38,7 @@ print '### GPU: ', gpu_id
 print '### Number of Categories: ', total_cat_num
 print '### Training epoches: ', total_training_epoch
 
-base_dir = '/home/kaichun/projects/cs221/fer2013/'
+base_dir = '/home/user/kaichun/cs221/'
 dataset_dir = os.path.join(base_dir, 'data_hdf5')
 
 log_dir = 'log_' + out_suffix
@@ -57,15 +59,16 @@ TRAINING_FILE_LIST = os.path.join(dataset_dir, 'training_file_list.txt')
 TESTING_FILE_LIST = os.path.join(dataset_dir, 'validation_file_list.txt')
 TRAINING_IMAGES_MEAN_SCALE_HDF5_FILE = os.path.join(dataset_dir, 'training_images_mean_scale.h5')
 
-DECAY_STEP = 100000
-DECAY_RATE = 0.8
+DECAY_STEP = 30000 * 20
+DECAY_RATE = 0.6
 
 BN_INIT_DECAY = 0.5
 BN_DECAY_DECAY_RATE = 0.5
 BN_DECAY_DECAY_STEP = float(DECAY_STEP * 2)
 BN_DECAY_CLIP = 0.99
 
-BASE_LEARNING_RATE = 0.01
+BASE_LEARNING_RATE = 0.001
+LEARNING_RATE_CLIP = 1e-5
 MOMENTUM = 0.9
 
 def getDataFiles(list_filename):
@@ -83,13 +86,60 @@ def load_h5_mean_scale(h5_filename):
     image_mean = f['mean'][:]
     return (image_mean, image_scale)
 
-
 def printout(flog, data):
     print data
     flog.write(data + '\n')
 
 def normalize(batch_data, mean, scale):
     return (batch_data - mean) * scale
+
+def random_flip(batch_data):
+    l = batch_data.shape[0]
+    new_batch_data = np.array(batch_data)
+    for i in range(l):
+        if np.random.random() > 0.5:
+            new_batch_data[i, :, :] = np.fliplr(new_batch_data[i, :, :])
+    return new_batch_data
+
+def random_translate(batch_data, shift_factor=0.3):
+    l = batch_data.shape[0]
+    sx = batch_data.shape[1]
+    sy = batch_data.shape[2]
+    new_batch_data = np.zeros((l, sx, sy), dtype=np.float32)
+    for i in range(l):
+        tmp = batch_data[i, :, :]
+        dx = np.random.choice(np.int32(sx * shift_factor))
+        dy = np.random.choice(np.int32(sy * shift_factor))
+
+        r = np.random.random()
+        new_img = np.zeros((sx, sy), dtype=np.float32)
+        if r < 0.25:
+            new_img[:sx-dx, :sy-dy] = tmp[dx:, dy:]
+        elif r < 0.5:
+            new_img[dx:, :sy-dy] = tmp[:sx-dx, dy:]
+        elif r < 0.75:
+            new_img[:sx-dx, dy:] = tmp[dx:, :sy-dy]
+        else:
+            new_img[dx:, dy:] = tmp[:sx-dx, :sy-dy]
+
+        new_batch_data[i, :, :] = new_img
+    return new_batch_data
+
+def random_rotate(batch_data, rotate_ratio=10):
+    new_batch_data = np.array(batch_data, dtype=np.float32)
+    for i in range(new_batch_data.shape[0]):
+        img = new_batch_data[i, :, :]
+        rot_degree = (np.random.random() * 2 - 1) * rotate_ratio
+        new_img = scipy.misc.imrotate(img, rot_degree)
+        new_batch_data[i, ...] = new_img
+    return new_batch_data
+
+def random_jitter(batch_data, sigma=0.01, clip=0.05):
+    B, N, C = batch_data.shape
+    assert(clip > 0)
+    jittered_data = np.clip(sigma * np.random.randn(B, N, C), -1*clip, clip)
+    jittered_data += batch_data
+    return jittered_data
 
 def placeholder_inputs():
     input_ph = tf.placeholder(tf.float32, shape=(batch_size, image_size, image_size))
@@ -113,6 +163,7 @@ def train():
                     DECAY_RATE,
                     staircase=True
                     )
+            learning_rate = tf.maximum(learning_rate, LEARNING_RATE_CLIP)
 
             bn_momentum = tf.train.exponential_decay(
                     BN_INIT_DECAY,
@@ -120,7 +171,7 @@ def train():
                     BN_DECAY_DECAY_STEP,
                     BN_DECAY_DECAY_RATE,
                     staircase=True)
-            bn_decay = tf.minimum(BN_DECAY_DECAY_STEP, 1 - bn_momentum)
+            bn_decay = tf.minimum(BN_DECAY_CLIP, 1 - bn_momentum)
 
             pred = model_type.get_model(input_ph, is_training=is_training_ph, \
                     cat_num=total_cat_num, batch_size=batch_size, \
@@ -136,6 +187,7 @@ def train():
 
             train_op = trainer.minimize(total_loss_op, var_list=train_variables, global_step=batch)
 
+    
         saver = tf.train.Saver()
         
         config = tf.ConfigProto()
@@ -169,19 +221,34 @@ def train():
         def train_one_epoch(train_file_idx, epoch):
             is_training = True
 
+            total_loss = 0.0
+            total_correct = 0.0
+            total_seen = 0
+
             for i in range(num_train_file):
                 cur_train_filename = train_file_list[train_file_idx[i]]
                 printout(flog, 'Loading train file ' + cur_train_filename)
 
                 cur_data, cur_labels = load_h5(cur_train_filename)
+                cur_data = np.array(cur_data, dtype=np.float32)
+
                 cur_data = normalize(cur_data, image_mean, image_scale)
+                
+                # Data Augmentation
+                cur_data = random_flip(cur_data)
+                cur_data = random_jitter(cur_data)
+                cur_data = random_translate(cur_data)
+                #cur_data = random_rotate(cur_data)
 
                 num_data = len(cur_labels)
                 num_batch = num_data / batch_size
 
-                total_loss = 0.0
-                total_correct = 0.0
-                total_seen = 0
+                # shuffle the training data
+                order = np.arange(num_data)
+                np.random.shuffle(order)
+
+                cur_data = cur_data[order, ...]
+                cur_labels = cur_labels[order]
 
                 for j in range(num_batch):
                     begidx = j * batch_size
@@ -191,15 +258,18 @@ def train():
                             label_ph: cur_labels[begidx: endidx],
                             is_training_ph: is_training,
                             }
-                    _, loss_val, pred_val = sess.run([train_op, total_loss_op, pred], \
+                    _, loss_val, pred_val, lrv = sess.run([train_op, total_loss_op, pred, learning_rate], \
                             feed_dict=feed_dict)
                     label_pred = np.argmax(pred_val, 1)
                     
+                    if i == 0 and j == 0:
+                        print 'Learning Rate: ', lrv
+
                     total_correct += np.mean(label_pred == cur_labels[begidx: endidx])
                     total_loss += loss_val
                     total_seen += 1
 
-                    if verbose and epoch % 20 == 0:
+                    if verbose and epoch % 10 == 0:
                         log_epoch_dir = os.path.join(log_result_dir, 'train_' + str(epoch))
                         if not os.path.exists(log_epoch_dir):
                             os.mkdir(log_epoch_dir)
@@ -210,14 +280,15 @@ def train():
 
                             if not gt_label == pred_label:
                                 cur_image = cur_data[shape_idx, ...] / image_scale + image_mean
+                                #cur_image = cur_data[shape_idx, ...] * 255.0
                                 info = '_gt_' + catid2catname[gt_label] + '_pred_' + catid2catname[pred_label] + '_'
                                 Image.fromarray(np.uint8(cur_image)).save(os.path.join(log_epoch_dir, str(train_file_idx[i])+'_'+str(shape_idx)+info+'.jpg'))
 
-                total_loss = total_loss * 1.0 / total_seen
-                total_acc = total_correct * 1.0 / total_seen
+            total_loss = total_loss * 1.0 / total_seen
+            total_acc = total_correct * 1.0 / total_seen
 
-                printout(flog, 'Training Loss: %f' % total_loss)
-                printout(flog, 'Training Accuracy: %f' % total_acc)
+            printout(flog, 'Training Loss: %f' % total_loss)
+            printout(flog, 'Training Accuracy: %f' % total_acc)
 
         def eval_one_epoch(epoch):
             is_training = False
@@ -234,6 +305,8 @@ def train():
                 printout(flog, 'Loading test file ' + cur_test_filename)
 
                 cur_data, cur_labels = load_h5(cur_test_filename)
+                cur_data = np.array(cur_data, dtype=np.float32)
+
                 cur_data = normalize(cur_data, image_mean, image_scale)
 
                 num_data = len(cur_labels)
@@ -261,7 +334,7 @@ def train():
                         total_per_cat_acc[gt_label] += np.int32(pred_label == gt_label)
                         total_per_cat_seen[gt_label] += 1
 
-                        if verbose and epoch % 20 == 0:
+                        if verbose and epoch % 10 == 0:
                             log_epoch_dir = os.path.join(log_result_dir, 'test_' + str(epoch))
                             if not os.path.exists(log_epoch_dir):
                                 os.mkdir(log_epoch_dir)
@@ -285,7 +358,7 @@ def train():
             printout(flog, 'Testing Accuracy: %f' % total_acc)
 
         for epoch in range(total_training_epoch):
-            if epoch % 10 == 0:
+            if epoch % 1 == 0:
                 printout(flog, '\n<<< Testing on the test dataset ...')
                 eval_one_epoch(epoch)
 

@@ -10,11 +10,11 @@ def get_model(input_images, is_training, cat_num, batch_size, weight_decay, bn_d
     input_data = tf.expand_dims(input_images, -1)
     print input_data
 
-    net = tf_util.conv2d(input_data, 128, [3, 3], stride=[1, 1], padding='VALID', scope='conv1', \
+    net = tf_util.conv2d(input_data, 256, [3, 3], stride=[1, 1], padding='VALID', scope='conv1', \
             weight_decay=weight_decay, bn_decay=bn_decay, bn=True, is_training=is_training)
     net = tf_util.max_pool2d(net, [2, 2], stride=[2, 2], scope='mp1', padding='VALID')
 
-    net = tf_util.conv2d(net, 128, [3, 3], stride=[1, 1], padding='VALID', scope='conv2', \
+    net = tf_util.conv2d(net, 256, [3, 3], stride=[1, 1], padding='VALID', scope='conv2', \
             weight_decay=weight_decay, bn_decay=bn_decay, bn=True, is_training=is_training)
     net = tf_util.max_pool2d(net, [2, 2], stride=[2, 2], scope='mp2', padding='VALID')
 

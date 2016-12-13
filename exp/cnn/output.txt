@@ -1,0 +1,5 @@
+Loading pretrained model ...
+Model restored.
+Loading test file /home/user/kaichun/cs221/data_hdf5/val_0.h5
+Loading test file /home/user/kaichun/cs221/data_hdf5/val_1.h5
+Testing Accuracy: 0.498535

@@ -370,7 +370,7 @@ def train():
             train_one_epoch(train_file_idx, epoch)
 
             if (epoch + 1) % 10 == 0:
-                cp_filename = saver.save(sess, os.path.join(log_dir, 'checkpoint_.ckpt'))
+                cp_filename = saver.save(sess, os.path.join(log_dir, 'checkpoint_'+str(epoch)+'.ckpt'))
                 printout(flog, 'Successfully store the checkpoint model into' + cp_filename)
 
             flog.flush()

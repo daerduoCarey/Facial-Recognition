@@ -16,7 +16,7 @@ def printout(flog, data):
     flog.write(data + '\n')
 
 # main
-base_dir = '/home/kaichun/projects/cs221/fer2013/'
+base_dir = '/home/user/kaichun/cs221/'
 dataset_dir = os.path.join(base_dir, 'data_hdf5')
 
 FILE_LIST = os.path.join(dataset_dir, 'training_file_list.txt')

@@ -26,7 +26,6 @@ gpu_id = FLAGS.gpu
 model_to_use = FLAGS.model
 pretrained_model = FLAGS.pretrained
 output_file = FLAGS.out_file
-output_png = FLAGS.out_file + '.png'
 
 model_type = __import__(model_to_use)
 
@@ -46,7 +45,7 @@ flabel = open(all_labels_file, 'r')
 catid2catname = [line.rstrip() for line in flabel.readlines()]
 flabel.close()
 
-TESTING_FILE_LIST = os.path.join(dataset_dir, 'validation_file_list.txt')
+TESTING_FILE_LIST = os.path.join(dataset_dir, 'testing_file_list.txt')
 TRAINING_IMAGES_MEAN_SCALE_HDF5_FILE = os.path.join(dataset_dir, 'training_images_mean_scale.h5')
 
 def plot_confusion_matrix(cm, classes,
@@ -146,8 +145,8 @@ def eval():
     total_seen = 0
     total_correct = 0
 
-    y_pred = np.zeros((0), dtype=np.int32)
-    y_gt = np.zeros((0), dtype=np.int32)
+    per_cat_seen = np.zeros((total_cat_num), dtype=np.int32)
+    per_cat_correct = np.zeros((total_cat_num), dtype=np.int32)
     for i in range(num_test_file):
         cur_test_filename = test_file_list[i]
         printout(flog, 'Loading test file ' + cur_test_filename)
@@ -172,19 +171,18 @@ def eval():
 
             label_pred = np.argmax(pred_val, 1)
 
-            y_gt = np.concatenate([y_gt, cur_labels[begidx: endidx]])
-            y_pred = np.concatenate([y_pred, label_pred])
-            
             total_correct += np.sum(label_pred == cur_labels[begidx: endidx])
             total_seen += batch_size
 
-    cnf_mat = confusion_matrix(y_gt, y_pred)
-    np.set_printoptions(precision=2)
+            for k in range(begidx, endidx):
+                cur_gt_label = cur_labels[k]
+                cur_pred_label = label_pred[k-begidx]
+                per_cat_seen[cur_gt_label] += 1
+                per_cat_correct[cur_gt_label] += np.int32(cur_gt_label == cur_pred_label)
 
-    fig = plt.figure()
-    plot_confusion_matrix(cnf_mat, classes=catid2catname, \
-            normalize=True, title='Confusion Matrix')
-    fig.savefig(output_png)
+    for i in range(total_cat_num):
+        per_cat_acc = per_cat_correct[i] * 1.0 / per_cat_seen[i]
+        printout(flog, 'Per-cat Accuracy %s: %f' % (catid2catname[i], per_cat_acc))
 
     total_acc = total_correct * 1.0 / total_seen
     printout(flog, 'Testing Accuracy: %f' % total_acc)

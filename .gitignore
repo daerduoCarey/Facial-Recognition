@@ -2,5 +2,9 @@ data_hdf5
 results
 fer2013.csv
 log_*
-checkpoint.ckpt*
+*.ckpt
+*.png
+*.jpg
+*.log
+*.txt
 *.pyc

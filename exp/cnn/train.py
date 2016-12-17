@@ -101,7 +101,7 @@ def random_flip(batch_data):
             new_batch_data[i, :, :] = np.fliplr(new_batch_data[i, :, :])
     return new_batch_data
 
-def random_translate(batch_data, shift_factor=0.3):
+def random_translate(batch_data, shift_factor=0.1):
     l = batch_data.shape[0]
     sx = batch_data.shape[1]
     sy = batch_data.shape[2]
@@ -125,12 +125,16 @@ def random_translate(batch_data, shift_factor=0.3):
         new_batch_data[i, :, :] = new_img
     return new_batch_data
 
-def random_rotate(batch_data, rotate_ratio=10):
+def random_rotate(batch_data, img_mean, img_scale, rotate_ratio=10):
     new_batch_data = np.array(batch_data, dtype=np.float32)
     for i in range(new_batch_data.shape[0]):
         img = new_batch_data[i, :, :]
+        img = img / img_scale + img_mean
+        img.astype(np.uint8)
         rot_degree = (np.random.random() * 2 - 1) * rotate_ratio
         new_img = scipy.misc.imrotate(img, rot_degree)
+        new_img.astype(np.float32)
+        new_img = (new_img - img_mean) * img_scale
         new_batch_data[i, ...] = new_img
     return new_batch_data
 
@@ -238,7 +242,6 @@ def train():
                 cur_data = random_flip(cur_data)
                 cur_data = random_jitter(cur_data)
                 cur_data = random_translate(cur_data)
-                #cur_data = random_rotate(cur_data)
 
                 num_data = len(cur_labels)
                 num_batch = num_data / batch_size
@@ -279,8 +282,8 @@ def train():
                             pred_label = label_pred[shape_idx - begidx]
 
                             if not gt_label == pred_label:
-                                cur_image = cur_data[shape_idx, ...] / image_scale + image_mean
-                                #cur_image = cur_data[shape_idx, ...] * 255.0
+                                #cur_image = cur_data[shape_idx, ...] / image_scale + image_mean
+                                cur_image = cur_data[shape_idx, ...] * 255.0 + 128
                                 info = '_gt_' + catid2catname[gt_label] + '_pred_' + catid2catname[pred_label] + '_'
                                 Image.fromarray(np.uint8(cur_image)).save(os.path.join(log_epoch_dir, str(train_file_idx[i])+'_'+str(shape_idx)+info+'.jpg'))
 

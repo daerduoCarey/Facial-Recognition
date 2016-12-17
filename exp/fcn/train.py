@@ -101,7 +101,7 @@ def random_flip(batch_data):
             new_batch_data[i, :, :] = np.fliplr(new_batch_data[i, :, :])
     return new_batch_data
 
-def random_translate(batch_data, shift_factor=0.3):
+def random_translate(batch_data, shift_factor=0.1):
     l = batch_data.shape[0]
     sx = batch_data.shape[1]
     sy = batch_data.shape[2]

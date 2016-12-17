@@ -44,10 +44,10 @@ def generate_hdf5(data, label, out_path):
     label_res = np.zeros((h5_batch_size)).astype(np.uint8)
     count = 0
     for idx in range(num_data):
-        data_res[idx % h5_batch_size, ...] = data[idx % h5_batch_size, ...]
-        label_res[idx % h5_batch_size] = label[idx % h5_batch_size]
+        data_res[idx % h5_batch_size, ...] = data[idx, ...]
+        label_res[idx % h5_batch_size] = label[idx]
         if (idx + 1) % h5_batch_size == 0 or idx + 1 == num_data:
-            save_h5(out_path + '_' + str(count) + '.h5', data_res, label_res)
+            save_h5(out_path + '_' + str(count) + '.h5', data_res[:idx % h5_batch_size+1], label_res[:idx % h5_batch_size+1])
             print '\t Dumping data to ', out_path + '_' + str(count) + '.h5'
             count += 1
 

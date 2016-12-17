@@ -23,7 +23,8 @@ This repository contains the Tensorflow codebase of our implementation to tackle
 * Insides each of `exp/cnn` and `exp/mlp` folders, there are three main Python scripts: `train.py`, `model.py`, `eval.py`. Different version of the three files exist in both folders. They are different variants of training scripts and network architectures that we experimented.
 * To train a model, you should run `train.py` like the following
             
-            python train.py [python_model_file_prefix] --gpu [gpu_id] --batch [batch_size] --epoch [training_epochs] --describe [other_descriptive_comments_for_this experiments] --wd [weight_decay]
+            python train.py [python_model_file_prefix] --gpu [gpu_id] --batch [batch_size] 
+            --epoch [training_epochs] --describe [other_descriptive_comments_for_this experiments] --wd [weight_decay]
 
 Run the following command to get the detailed usage for `train.py`.
 
@@ -38,4 +39,5 @@ Run the following command to get the detailed usage for `train.py`.
 
 ## Contact
 Webpage: http://www.cs.stanford.edu/~kaichun/ 
+
 E-mail: kaichun [at] cs.stanford.edu

@@ -2,6 +2,10 @@
 
 This repository contains the Tensorflow codebase of our implementation to tackle the task Facial Expression Recognition and this is the project we have done for Stanford course CS221: Artificial Intelligence. We train MLP (Multiple-layer Perceptron) and CNN (Convolutional Neural Network) models to tackle the classification task. We use the training data from [Kaggle Facial Expression Recognition Challenge](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data) and our best model achieves 69.0% of testing accuracy, approaching the state of the art method as stated in the [Kaggle Leadboard](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/leaderboard).
 
+## Detailed Project Report:
+
+http://www.cs.stanford.edu/~kaichun/resume/cs221_project_report.pdf
+
 ## Data Download and Pre-processing
 
 * All data can be downloaded from the official Kaggle challenge webpage: [Kaggle Facial Expression Recognition Challenge](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data)
